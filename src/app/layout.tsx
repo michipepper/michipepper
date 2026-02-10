@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "michipepper | Portfolio",
-  description: "Developer portfolio of michipepper. Projects, skills, and contact info.",
+  title: {
+    default: "michipepper | Portfolio",
+    template: "%s | michipepper",
+  },
+  description:
+    "Developer portfolio of michipepper. Projects, writings, and more.",
 };
 
 export default function RootLayout({
@@ -13,8 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
-        {children}
+      <body className="flex min-h-screen flex-col antialiased">
+        <Header />
+        <main className="flex-1 pt-16">{children}</main>
+        <Footer />
       </body>
     </html>
   );

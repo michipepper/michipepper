@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Works",
+};
+
 const projects = [
   {
     title: "Portfolio Website",
@@ -20,26 +26,51 @@ const projects = [
     tags: ["Python", "CLI", "Open Source"],
     link: "#",
   },
+  {
+    title: "Project Four",
+    description:
+      "A mobile-first web application with real-time data synchronization and offline support.",
+    tags: ["TypeScript", "Firebase", "PWA"],
+    link: "#",
+  },
+  {
+    title: "Project Five",
+    description:
+      "REST API service with authentication, rate limiting, and comprehensive documentation.",
+    tags: ["Node.js", "Express", "MongoDB"],
+    link: "#",
+  },
+  {
+    title: "Project Six",
+    description:
+      "Data visualization dashboard for monitoring and analyzing key performance metrics.",
+    tags: ["D3.js", "React", "WebSockets"],
+    link: "#",
+  },
 ];
 
-export default function Projects() {
+export default function Works() {
   return (
-    <section id="projects" className="mx-auto max-w-4xl px-6 py-24">
-      <h2 className="mb-2 font-mono text-sm text-accent">02.</h2>
-      <h3 className="mb-8 text-3xl font-bold text-foreground">Projects</h3>
+    <div className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
+      <h1 className="mb-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        Works
+      </h1>
+      <p className="mb-12 text-muted">
+        A selection of projects I&apos;ve built and contributed to.
+      </p>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <a
             key={project.title}
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col rounded-xl border border-card-border bg-card-bg p-6 transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5"
+            className="group flex flex-col rounded-lg border border-card-border bg-card-bg p-6 transition-all hover:border-muted hover:shadow-sm"
           >
-            <div className="mb-4 text-accent">
+            <div className="mb-3 text-muted">
               <svg
-                className="h-8 w-8"
+                className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -52,9 +83,9 @@ export default function Projects() {
                 />
               </svg>
             </div>
-            <h4 className="mb-2 text-lg font-semibold text-foreground group-hover:text-accent">
+            <h2 className="mb-2 text-base font-semibold text-foreground group-hover:text-accent">
               {project.title}
-            </h4>
+            </h2>
             <p className="mb-4 flex-1 text-sm leading-relaxed text-muted">
               {project.description}
             </p>
@@ -62,7 +93,7 @@ export default function Projects() {
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full bg-accent/10 px-3 py-1 font-mono text-xs text-accent"
+                  className="rounded-full bg-muted-light px-2.5 py-0.5 text-xs text-muted"
                 >
                   {tag}
                 </span>
@@ -71,6 +102,6 @@ export default function Projects() {
           </a>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
